@@ -182,7 +182,7 @@ async function solveSystem() {
 
         solutionHTML += `
 
-            x${index + 1} = ${value}
+            x${index + 1} = ${Number(value).toFixed(4)}
 
             &nbsp;&nbsp;
 
