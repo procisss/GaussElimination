@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero">
+
+    <h1>Gaussian Elimination</h1>
+
+    <h2>with Partial Pivoting</h2>
+
+    <p>
+        Interactive Numerical Methods Learning System
+    </p>
+
+    <div class="card-container">
+
+        <div
+        class="card blue"
+        onclick="window.location='/discussion'">
+
+            <h3>Mathematical Discussion</h3>
+
+            <p>
+                Learn the theory and formulas
+                of Gaussian Elimination with
+                Partial Pivoting.
+            </p>
+
+            <div class="arrow">→</div>
+
+        </div>
+
+        <div
+        class="card green"
+        onclick="window.location='/examples'">
+
+            <h3>Worked Examples</h3>
+
+            <p>
+                Explore two fully solved
+                examples step-by-step.
+            </p>
+
+            <div class="arrow">→</div>
+
+        </div>
+
+        <div
+        class="card purple"
+        onclick="window.location='/calculator'">
+
+            <h3>Interactive Calculator</h3>
+
+            <p>
+                Input your own matrix and
+                solve instantly.
+            </p>
+
+            <div class="arrow">→</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

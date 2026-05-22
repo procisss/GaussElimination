@@ -1,0 +1,611 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="section-title">
+
+Worked Examples
+
+</h1>
+
+<p class="subtitle">
+
+Step-by-step solutions using Gaussian Elimination
+with Partial Pivoting
+
+</p>
+
+<!-- EXAMPLE TABS -->
+
+<div class="example-tabs">
+
+    <button
+    type="button"
+    class="tab-btn active"
+    onclick="showExample(1)">
+
+        Example 1
+
+    </button>
+
+    <button
+    type="button"
+    class="tab-btn"
+    onclick="showExample(2)">
+
+        Example 2
+
+    </button>
+
+</div>
+
+
+<!-- ========================= -->
+<!-- EXAMPLE 1 -->
+<!-- ========================= -->
+
+<div id="example1" class="example-content active-example">
+
+    <div class="example-grid">
+
+        <!-- GIVEN -->
+
+        <div class="box">
+
+            <h4>
+
+                Given System
+
+            </h4>
+
+            <div class="math">
+
+                x + y + z = 6
+                <br><br>
+
+                2x − y + z = 3
+                <br><br>
+
+                x + 2y − z = 3
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 1 -->
+
+        <div class="box">
+
+            <h4>
+
+                Step 1: Augmented Matrix
+
+            </h4>
+
+            <div class="matrix-step">
+
+                [ 1   1   1 | 6 ]
+                <br>
+
+                [ 2  -1   1 | 3 ]
+                <br>
+
+                [ 1   2  -1 | 3 ]
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 2 -->
+
+        <div class="box">
+
+            <h4>
+
+                Step 2: Partial Pivoting
+
+            </h4>
+
+            <p>
+
+                Largest value in column 1 is 2,
+                so swap Row 1 and Row 2.
+
+            </p>
+
+            <div class="math">
+
+                R₁ ↔ R₂
+
+            </div>
+
+            <div class="matrix-step">
+
+                [ 2  -1   1 | 3 ]
+                <br>
+
+                [ 1   1   1 | 6 ]
+                <br>
+
+                [ 1   2  -1 | 3 ]
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 3 -->
+
+        <div class="box">
+
+            <h4>
+
+                Step 3: Eliminate Entries Below Pivot
+
+            </h4>
+
+            <div class="math">
+
+                m₂₁ = 1/2
+                <br><br>
+
+                R₂ → R₂ − (1/2)R₁
+
+                <br><br>
+
+                m₃₁ = 1/2
+                <br><br>
+
+                R₃ → R₃ − (1/2)R₁
+
+            </div>
+
+            <div class="matrix-step">
+
+                [ 2   -1    1 | 3 ]
+                <br>
+
+                [ 0   3/2  1/2 | 9/2 ]
+                <br>
+
+                [ 0   5/2 -3/2 | 3/2 ]
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 4 -->
+
+        <div class="box">
+
+            <h4>
+
+                Step 4: Partial Pivoting (Column 2)
+
+            </h4>
+
+            <p>
+
+                Compare second-column values:
+                3/2 and 5/2.
+
+                Largest is 5/2,
+                so swap Row 2 and Row 3.
+
+            </p>
+
+            <div class="math">
+
+                R₂ ↔ R₃
+
+            </div>
+
+            <div class="matrix-step">
+
+                [ 2   -1    1 | 3 ]
+                <br>
+
+                [ 0   5/2 -3/2 | 3/2 ]
+                <br>
+
+                [ 0   3/2  1/2 | 9/2 ]
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 5 -->
+
+        <div class="box">
+
+            <h4>
+
+                Step 5: Eliminate Below Second Pivot
+
+            </h4>
+
+            <div class="math">
+
+                m₃₂ = (3/2)/(5/2) = 3/5
+
+                <br><br>
+
+                R₃ → R₃ − (3/5)R₂
+
+            </div>
+
+            <div class="matrix-step">
+
+                [ 2   -1    1 | 3 ]
+                <br>
+
+                [ 0   5/2 -3/2 | 3/2 ]
+                <br>
+
+                [ 0    0   7/5 | 18/5 ]
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 6 -->
+
+        <div class="box">
+
+            <h4>
+
+                Step 6: Back Substitution
+
+            </h4>
+
+            <div class="math">
+
+                z = (18/5)/(7/5) = 18/7
+
+                <br><br>
+
+                y = 15/7
+
+                <br><br>
+
+                x = 8/7
+
+            </div>
+
+        </div>
+
+
+        <!-- FINAL -->
+
+        <div class="box purple">
+
+            <h4>
+
+                Final Answer
+
+            </h4>
+
+            <div class="solution">
+
+                x = 9/7
+                <br><br>
+
+                y = 15/7
+                <br><br>
+
+                z = 18/7
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ========================= -->
+<!-- EXAMPLE 2 -->
+<!-- ========================= -->
+
+<div id="example2" class="example-content">
+
+    <div class="example-grid">
+
+        <!-- GIVEN -->
+
+        <div class="box">
+
+            <h4>
+
+                Given System
+
+            </h4>
+
+            <div class="math">
+
+                2x + y − z = 8
+                <br><br>
+
+                −3x − y + 2z = −11
+                <br><br>
+
+                −2x + y + 2z = −3
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 1 -->
+
+        <div class="box">
+
+            <h4>
+
+                Step 1: Augmented Matrix
+
+            </h4>
+
+            <div class="matrix-step">
+
+                [ 2   1  -1 | 8 ]
+                <br>
+
+                [ -3 -1   2 | -11 ]
+                <br>
+
+                [ -2  1   2 | -3 ]
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 2 -->
+
+        <div class="box">
+
+            <h4>
+
+                Step 2: Partial Pivoting
+
+            </h4>
+
+            <p>
+
+                Compare absolute values in
+                column 1:
+
+                |2|, |-3|, and |-2|.
+
+                Largest is |-3|, so swap
+                Row 1 and Row 2.
+
+            </p>
+
+            <div class="math">
+
+                R₁ ↔ R₂
+
+            </div>
+
+            <div class="matrix-step">
+
+                [ -3  -1   2 | -11 ]
+                <br>
+
+                [  2   1  -1 | 8 ]
+                <br>
+
+                [ -2   1   2 | -3 ]
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 3 -->
+
+        <div class="box">
+
+            <h4>
+
+                Step 3: Eliminate Entries Below Pivot
+
+            </h4>
+
+            <div class="math">
+
+                m₂₁ = 2 / (-3) = -2/3
+
+                <br><br>
+
+                R₂ → R₂ − (-2/3)R₁
+
+                <br><br>
+
+                m₃₁ = (-2) / (-3) = 2/3
+
+                <br><br>
+
+                R₃ → R₃ − (2/3)R₁
+
+            </div>
+
+            <div class="matrix-step">
+
+                [ -3  -1    2 | -11 ]
+                <br>
+
+                [  0  1/3  1/3 | 2/3 ]
+                <br>
+
+                [  0  5/3  2/3 | 13/3 ]
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 4 -->
+
+        <div class="box">
+
+            <h4>
+
+                Step 4: Partial Pivoting (Column 2)
+
+            </h4>
+
+            <p>
+
+                Compare second-column values:
+                1/3 and 5/3.
+
+                Largest is 5/3,
+                so swap Row 2 and Row 3.
+
+            </p>
+
+            <div class="math">
+
+                R₂ ↔ R₃
+
+            </div>
+
+            <div class="matrix-step">
+
+                [ -3  -1    2 | -11 ]
+                <br>
+
+                [  0  5/3  2/3 | 13/3 ]
+                <br>
+
+                [  0  1/3  1/3 | 2/3 ]
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 5 -->
+
+        <div class="box">
+
+            <h4>
+
+                Step 5: Eliminate Below Second Pivot
+
+            </h4>
+
+            <div class="math">
+
+                m₃₂ = (1/3) / (5/3)
+
+                = 1/5
+
+                <br><br>
+
+                R₃ → R₃ − (1/5)R₂
+
+            </div>
+
+            <div class="matrix-step">
+
+                [ -3  -1    2 | -11 ]
+                <br>
+
+                [  0  5/3  2/3 | 13/3 ]
+                <br>
+
+                [  0   0   1/5 | -1/5 ]
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 6 -->
+
+        <div class="box">
+
+            <h4>
+
+                Step 6: Back Substitution
+
+            </h4>
+
+            <div class="math">
+
+                z = (-1/5) / (1/5)
+
+                = -1
+
+                <br><br>
+
+                (5/3)y + (2/3)(-1) = 13/3
+
+                <br><br>
+
+                (5/3)y = 15/3
+
+                <br><br>
+
+                y = 3
+
+                <br><br>
+
+                -3x - y + 2z = -11
+
+                <br><br>
+
+                -3x - 3 + 2(-1) = -11
+
+                <br><br>
+
+                -3x = -6
+
+                <br><br>
+
+                x = 2
+
+            </div>
+
+        </div>
+
+
+        <!-- FINAL -->
+
+        <div class="box purple">
+
+            <h4>
+
+                Final Answer
+
+            </h4>
+
+            <div class="solution">
+
+                x = 2
+                <br><br>
+
+                y = 3
+                <br><br>
+
+                z = -1
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

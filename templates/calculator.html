@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="section-title">
+
+Interactive Calculator
+
+</h1>
+
+<div class="calculator-grid">
+
+    <!-- UPPER LEFT -->
+    <div class="glass">
+
+        <h3>
+
+            Enter Augmented Matrix (3x4)
+
+        </h3>
+
+        <table class="matrix">
+
+            <tr>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+            </tr>
+
+            <tr>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+            </tr>
+
+            <tr>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+                <td><input type="number"></td>
+            </tr>
+
+        </table>
+
+        <button onclick="solveSystem()">
+
+            Solve System
+
+        </button>
+
+    </div>
+
+
+    <!-- UPPER RIGHT -->
+    <div class="glass purple">
+
+        <h3>
+
+            Inputted Matrix
+
+        </h3>
+
+        <div id="matrixDisplay" class="matrix-display">
+
+
+        </div>
+
+    </div>
+
+
+    <!-- LOWER LEFT -->
+    <div class="glass green">
+
+        <h3>
+
+            Final Solution
+
+        </h3>
+
+        <div id="solution">
+
+
+        </div>
+
+    </div>
+
+
+    <!-- LOWER RIGHT -->
+    <div class="glass purple">
+
+        <h3>
+
+            Elimination Steps
+
+        </h3>
+
+        <div id="steps">
+
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

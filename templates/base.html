@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Gaussian Elimination</title>
+
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            GAUSSIAN
+            <span>ELIMINATION</span>
+
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </a>
+
+            <a href="/discussion">
+                <i class="fa-solid fa-book"></i>
+                Mathematical Discussion
+            </a>
+
+            <a href="/examples">
+                <i class="fa-solid fa-square-root-variable"></i>
+                Worked Examples
+            </a>
+
+            <a href="/calculator">
+                <i class="fa-solid fa-calculator"></i>
+                Interactive Calculator
+            </a>
+
+        </div>
+
+    </aside>
+
+    <main class="main">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+</div>
+
+<script
+src="{{ url_for('static', filename='js/script.js') }}">
+</script>
+
+</body>
+</html>

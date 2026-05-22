@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="section-title">
+    Mathematical Discussion
+</h1>
+
+<div class="grid">
+
+    <div class="box">
+
+        <h4>What is Gaussian Elimination?</h4>
+
+        <p>
+            Gaussian Elimination is a numerical
+            method used to solve systems of
+            linear equations by transforming
+            the augmented matrix into upper
+            triangular form.
+        </p>
+
+    </div>
+
+    <div class="box">
+
+        <h4>Partial Pivoting</h4>
+
+        <p>
+            Partial Pivoting improves numerical
+            stability by swapping rows so the
+            largest pivot element is used.
+        </p>
+
+    </div>
+
+    <div class="box">
+
+        <h4>Row Elimination Formula</h4>
+
+        <div class="math">
+
+            Rⱼ = Rⱼ − mⱼᵢRᵢ
+
+        </div>
+
+    </div>
+
+    <div class="box">
+
+        <h4>Advantages</h4>
+
+        <ul>
+
+            <li>Avoids division by zero</li>
+            <li>Improves numerical stability</li>
+            <li>Reduces rounding errors</li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+{% endblock %}
