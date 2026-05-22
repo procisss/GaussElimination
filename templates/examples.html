@@ -133,9 +133,21 @@ with Partial Pivoting
 
             <h4>Step 3: Eliminate Entries Below Pivot</h4>
 
+            <p>
+
+                Use the pivot value 2 in Row 1 to eliminate
+                the x-values below it.
+
+            </p>
+
             <div class="math">
 
                 m₂₁ = 1/2
+
+                <br><br>
+
+                Multiply Row 1 by 1/2 and subtract it from Row 2.
+
                 <br><br>
 
                 R₂ → R₂ − (1/2)R₁
@@ -143,6 +155,11 @@ with Partial Pivoting
                 <br><br>
 
                 m₃₁ = 1/2
+
+                <br><br>
+
+                Multiply Row 1 by 1/2 and subtract it from Row 3.
+
                 <br><br>
 
                 R₃ → R₃ − (1/2)R₁
@@ -207,9 +224,20 @@ with Partial Pivoting
 
             <h4>Step 5: Eliminate Below Second Pivot</h4>
 
+            <p>
+
+                Use the pivot value 5/2 in Row 2 to eliminate
+                the value below it in column 2.
+
+            </p>
+
             <div class="math">
 
                 m₃₂ = (3/2)/(5/2) = 3/5
+
+                <br><br>
+
+                Multiply Row 2 by 3/5 and subtract it from Row 3.
 
                 <br><br>
 
@@ -238,9 +266,27 @@ with Partial Pivoting
 
             <h4>Step 6: Back Substitution</h4>
 
+            <p>
+
+                Start from the bottom row and solve upward.
+
+            </p>
+
             <div class="math">
 
+                From Row 3:
+
+                <br><br>
+
+                (7/5)z = 18/5
+
+                <br><br>
+
                 z = (18/5)/(7/5) = 18/7
+
+                <br><br>
+
+                Substitute z into Row 2:
 
                 <br><br>
 
@@ -249,6 +295,10 @@ with Partial Pivoting
                 <br><br>
 
                 y = 15/7
+
+                <br><br>
+
+                Substitute y and z into Row 1:
 
                 <br><br>
 
@@ -381,9 +431,20 @@ with Partial Pivoting
 
             <h4>Step 3: Eliminate Entries Below Pivot</h4>
 
+            <p>
+
+                Use the pivot value -3 in Row 1 to eliminate
+                the x-values below it.
+
+            </p>
+
             <div class="math">
 
                 m₂₁ = 2 / (-3) = -2/3
+
+                <br><br>
+
+                Multiply Row 1 by -2/3 and subtract it from Row 2.
 
                 <br><br>
 
@@ -392,6 +453,10 @@ with Partial Pivoting
                 <br><br>
 
                 m₃₁ = (-2) / (-3) = 2/3
+
+                <br><br>
+
+                Multiply Row 1 by 2/3 and subtract it from Row 3.
 
                 <br><br>
 
@@ -457,9 +522,20 @@ with Partial Pivoting
 
             <h4>Step 5: Eliminate Below Second Pivot</h4>
 
+            <p>
+
+                Use the pivot value 5/3 in Row 2 to eliminate
+                the value below it in column 2.
+
+            </p>
+
             <div class="math">
 
                 m₃₂ = (1/3)/(5/3) = 1/5
+
+                <br><br>
+
+                Multiply Row 2 by 1/5 and subtract it from Row 3.
 
                 <br><br>
 
@@ -488,9 +564,27 @@ with Partial Pivoting
 
             <h4>Step 6: Back Substitution</h4>
 
+            <p>
+
+                Start from the bottom row and solve upward.
+
+            </p>
+
             <div class="math">
 
+                From Row 3:
+
+                <br><br>
+
+                (1/5)z = -1/5
+
+                <br><br>
+
                 z = (-1/5)/(1/5) = -1
+
+                <br><br>
+
+                Substitute z into Row 2:
 
                 <br><br>
 
@@ -499,6 +593,10 @@ with Partial Pivoting
                 <br><br>
 
                 y = 3
+
+                <br><br>
+
+                Substitute y and z into Row 1:
 
                 <br><br>
 
@@ -528,6 +626,321 @@ with Partial Pivoting
                 <br><br>
 
                 z = -1
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- EXAMPLE 3 -->
+
+
+<button
+type="button"
+class="tab-btn"
+onclick="showExample(3)">
+
+    Example 3
+
+</button>
+
+
+
+<div id="example3" class="example-content">
+
+    <div class="example-grid">
+
+        <!-- GIVEN -->
+
+        <div class="box">
+
+            <h4>Given System</h4>
+
+            <div class="math">
+
+                x + y + z + w = 10
+                <br><br>
+
+                2x − y + z + 3w = 5
+                <br><br>
+
+                x + 2y − z + w = 7
+                <br><br>
+
+                3x + y + 2z − w = 12
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 1 -->
+
+        <div class="box">
+
+            <h4>Step 1: Augmented Matrix</h4>
+
+            <div class="matrix-step">
+
+                [ 1   1   1   1 | 10 ]
+                <br>
+
+                [ 2  -1   1   3 |  5 ]
+                <br>
+
+                [ 1   2  -1   1 |  7 ]
+                <br>
+
+                [ 3   1   2  -1 | 12 ]
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 2 -->
+
+        <div class="box">
+
+            <h4>Step 2: Partial Pivoting</h4>
+
+            <p>
+
+                Compare absolute values in column 1:
+                |1|, |2|, |1|, and |3|.
+
+                Largest is |3|,
+                so swap Row 1 and Row 4.
+
+            </p>
+
+            <div class="math">
+
+                R₁ ↔ R₄
+
+            </div>
+
+            <div class="matrix-step">
+
+                [ 3   1   2  -1 | 12 ]
+                <br>
+
+                [ 2  -1   1   3 |  5 ]
+                <br>
+
+                [ 1   2  -1   1 |  7 ]
+                <br>
+
+                [ 1   1   1   1 | 10 ]
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 3 -->
+
+        <div class="box">
+
+            <h4>Step 3: Eliminate Entries Below Pivot</h4>
+
+            <p>
+
+                Use the pivot value 3 in Row 1
+                to eliminate the x-values below it.
+
+            </p>
+
+            <div class="math">
+
+                m₂₁ = 2/3
+                <br><br>
+
+                R₂ → R₂ − (2/3)R₁
+
+                <br><br>
+
+                m₃₁ = 1/3
+                <br><br>
+
+                R₃ → R₃ − (1/3)R₁
+
+                <br><br>
+
+                m₄₁ = 1/3
+                <br><br>
+
+                R₄ → R₄ − (1/3)R₁
+
+            </div>
+
+            <div class="matrix-step">
+
+                [ 3    1     2    -1 | 12 ]
+                <br>
+
+                [ 0  -5/3  -1/3  11/3 | -3 ]
+                <br>
+
+                [ 0   5/3  -5/3   4/3 | 3 ]
+                <br>
+
+                [ 0   2/3   1/3   4/3 | 6 ]
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 4 -->
+
+        <div class="box">
+
+            <h4>Step 4: Partial Pivoting (Column 2)</h4>
+
+            <p>
+
+                Compare absolute values in column 2:
+                |-5/3|, |5/3|, and |2/3|.
+
+                Choose 5/3 as the pivot.
+
+            </p>
+
+            <div class="matrix-step">
+
+                [ 3    1     2    -1 | 12 ]
+                <br>
+
+                [ 0   5/3  -5/3   4/3 | 3 ]
+                <br>
+
+                [ 0  -5/3  -1/3  11/3 | -3 ]
+                <br>
+
+                [ 0   2/3   1/3   4/3 | 6 ]
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 5 -->
+
+        <div class="box">
+
+            <h4>Step 5: Continue Elimination</h4>
+
+            <p>
+
+                Eliminate the y-values below
+                the second pivot.
+
+            </p>
+
+            <div class="math">
+
+                m₃₂ = (-5/3)/(5/3) = -1
+
+                <br><br>
+
+                R₃ → R₃ − (-1)R₂
+
+                <br><br>
+
+                m₄₂ = (2/3)/(5/3) = 2/5
+
+                <br><br>
+
+                R₄ → R₄ − (2/5)R₂
+
+            </div>
+
+            <div class="matrix-step">
+
+                [ 3    1     2    -1 | 12 ]
+                <br>
+
+                [ 0   5/3  -5/3   4/3 | 3 ]
+                <br>
+
+                [ 0    0    -2    5 | 0 ]
+                <br>
+
+                [ 0    0     1    4/5 | 24/5 ]
+
+            </div>
+
+        </div>
+
+
+        <!-- STEP 6 -->
+
+        <div class="box">
+
+            <h4>Step 6: Back Substitution</h4>
+
+            <p>
+
+                Solve from the bottom row upward.
+
+            </p>
+
+            <div class="math">
+
+                z + (4/5)w = 24/5
+
+                <br><br>
+
+                -2z + 5w = 0
+
+                <br><br>
+
+                Solving gives:
+
+                <br><br>
+
+                w = 2
+
+                <br><br>
+
+                z = 16/5
+
+                <br><br>
+
+                y = 18/5
+
+                <br><br>
+
+                x = -14/5
+
+            </div>
+
+        </div>
+
+
+        <!-- FINAL -->
+
+        <div class="box purple">
+
+            <h4>Final Answer</h4>
+
+            <div class="solution">
+
+                x = -14/5
+                <br><br>
+
+                y = 18/5
+                <br><br>
+
+                z = 16/5
+                <br><br>
+
+                w = 2
 
             </div>
 
