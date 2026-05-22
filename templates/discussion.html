@@ -10,14 +10,26 @@
 
     <div class="box">
 
+        <h4>Introduction</h4>
+
+        <p>
+            Gaussian Elimination is a numerical method used to solve systems of linear equations by transforming the augmented matrix into an upper triangular form.
+            Once in this form, the system becomes easier to solve using back substitution.
+        </p>
+
+        <p>
+            The method is widely used in engineering, physics, and computer science because it provides a systematic and reliable way to solve multiple equations with multiple unknowns.
+        </p>
+
+    </div>
+
+    <div class="box">
+
         <h4>What is Gaussian Elimination?</h4>
 
         <p>
-            Gaussian Elimination is a numerical
-            method used to solve systems of
-            linear equations by transforming
-            the augmented matrix into upper
-            triangular form.
+            The goal of Gaussian Elimination is to simplify a system of equations step-by-step until it becomes triangular.
+            Each step removes variables from lower equations, reducing the complexity of the system while preserving its solution.
         </p>
 
     </div>
@@ -27,9 +39,12 @@
         <h4>Partial Pivoting</h4>
 
         <p>
-            Partial Pivoting improves numerical
-            stability by swapping rows so the
-            largest pivot element is used.
+            Partial pivoting improves numerical stability by swapping rows so that the largest available coefficient is used as the pivot.
+            This reduces rounding errors and prevents division by very small or zero values.
+        </p>
+
+        <p>
+            Without pivoting, the elimination process may become unstable or fail in some cases.
         </p>
 
     </div>
@@ -39,10 +54,24 @@
         <h4>Row Elimination Formula</h4>
 
         <div class="math">
-
-            Rⱼ = Rⱼ − mⱼᵢRᵢ
-
+            R_j = R_j - m_{ji} R_i
         </div>
+
+        <p>
+            This formula is used to eliminate variables below the pivot element.
+            The multiplier <b>m<sub>ji</sub></b> is computed as the ratio of the element being eliminated to the pivot element.
+        </p>
+
+    </div>
+
+    <div class="box">
+
+        <h4>Back Substitution</h4>
+
+        <p>
+            Once the matrix is in upper triangular form, the last equation is solved first.
+            The solution is then substituted upward step-by-step to find all unknown variables.
+        </p>
 
     </div>
 
@@ -51,11 +80,10 @@
         <h4>Advantages</h4>
 
         <ul>
-
-            <li>Avoids division by zero</li>
+            <li>Avoids division by zero through pivoting</li>
             <li>Improves numerical stability</li>
-            <li>Reduces rounding errors</li>
-
+            <li>Reduces rounding errors in computation</li>
+            <li>Works efficiently for large systems of equations</li>
         </ul>
 
     </div>
