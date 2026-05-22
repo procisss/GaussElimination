@@ -1,23 +1,102 @@
-async function solveSystem() {
+let currentMatrixSize = 3;
 
-    const inputs = document.querySelectorAll('input')
 
-    let matrix = []
-    let row = []
+// =========================
+// GENERATE MATRIX
+// =========================
 
-    inputs.forEach((input, index) => {
+function generateMatrix(size) {
 
-        row.push(parseFloat(input.value))
+    const table = document.getElementById("matrixTable");
 
-        if ((index + 1) % 4 === 0) {
+    table.innerHTML = "";
 
-            matrix.push(row)
+    const cols = size + 1;
 
-            row = []
+    for (let i = 0; i < size; i++) {
 
+        const row = document.createElement("tr");
+
+        for (let j = 0; j < cols; j++) {
+
+            const cell = document.createElement("td");
+
+            const input = document.createElement("input");
+
+            input.type = "number";
+
+            input.step = "any";
+
+            input.id = `cell-${i}-${j}`;
+
+            cell.appendChild(input);
+
+            row.appendChild(cell);
         }
 
-    })
+        table.appendChild(row);
+    }
+}
+
+
+// =========================
+// SWITCH MATRIX SIZE
+// =========================
+
+function setMatrixSize(size) {
+
+    currentMatrixSize = size;
+
+    generateMatrix(size);
+
+    document
+        .getElementById("btn3")
+        .classList.remove("active");
+
+    document
+        .getElementById("btn4")
+        .classList.remove("active");
+
+    if (size === 3) {
+
+        document
+            .getElementById("btn3")
+            .classList.add("active");
+
+    } else {
+
+        document
+            .getElementById("btn4")
+            .classList.add("active");
+    }
+}
+
+
+// =========================
+// SOLVE SYSTEM
+// =========================
+
+async function solveSystem() {
+
+    const size = currentMatrixSize;
+
+    let matrix = [];
+
+    for (let i = 0; i < size; i++) {
+
+        let row = [];
+
+        for (let j = 0; j < size + 1; j++) {
+
+            const value = parseFloat(
+                document.getElementById(`cell-${i}-${j}`).value
+            ) || 0;
+
+            row.push(value);
+        }
+
+        matrix.push(row);
+    }
 
     // =========================
     // DISPLAY INPUT MATRIX
@@ -27,120 +106,105 @@ async function solveSystem() {
 
     <div class="matrix-wrapper">
 
-        <div class="matrix-bracket left">
-            [
-        </div>
-
         <div class="matrix-values">
 
-    `
+    `;
 
     matrix.forEach(r => {
 
-        matrixHTML += `<div class="matrix-row">`
+        matrixHTML += `<div class="matrix-row">`;
 
         r.forEach((val, index) => {
 
-            if(index === 3){
+            if (index === matrix[0].length - 1) {
 
                 matrixHTML += `
                     <span class="divider">|</span>
-                `
+                `;
             }
 
             matrixHTML += `
                 <span>${val}</span>
-            `
-        })
+            `;
+        });
 
-        matrixHTML += `</div>`
-
-    })
+        matrixHTML += `</div>`;
+    });
 
     matrixHTML += `
-
         </div>
-
-        <div class="matrix-bracket right">
-            ]
-        </div>
-
     </div>
-
-    `
+    `;
 
     document.getElementById(
-        'matrixDisplay'
-    ).innerHTML = matrixHTML
-
+        "matrixDisplay"
+    ).innerHTML = matrixHTML;
 
     // =========================
     // FETCH SOLUTION
     // =========================
 
-    const response = await fetch('/solve', {
+    const response = await fetch("/solve", {
 
-        method: 'POST',
+        method: "POST",
 
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json"
         },
 
         body: JSON.stringify({
             matrix: matrix
         })
+    });
 
-    })
-
-    const data = await response.json()
+    const data = await response.json();
 
     // =========================
     // ERROR HANDLING
     // =========================
 
-    if(data.error){
+    if (data.error) {
 
         document.getElementById(
-            'solution'
-        ).innerHTML = data.error
+            "solution"
+        ).innerHTML = data.error;
 
-        return
-
+        return;
     }
 
     // =========================
     // DISPLAY SOLUTION
     // =========================
 
-        document.getElementById(
-        'solution'
-    ).innerHTML = `
+    let solutionHTML = "";
 
-        x₁ = ${data.solution[0]}
-        &nbsp;&nbsp;
-        (${data.fraction_solution[0]})
-        <br><br>
+    data.solution.forEach((value, index) => {
 
-        x₂ = ${data.solution[1]}
-        &nbsp;&nbsp;
-        (${data.fraction_solution[1]})
-        <br><br>
+        solutionHTML += `
 
-        x₃ = ${data.solution[2]}
-        &nbsp;&nbsp;
-        (${data.fraction_solution[2]})
+            x${index + 1} = ${value}
 
-    `
+            &nbsp;&nbsp;
+
+            (${data.fraction_solution[index]})
+
+            <br><br>
+        `;
+    });
+
+    document.getElementById(
+        "solution"
+    ).innerHTML = solutionHTML;
 
     // =========================
     // DISPLAY STEPS
     // =========================
 
     const stepsDiv = document.getElementById(
-        'steps'
-    )
+        "steps"
+    );
 
-    stepsDiv.innerHTML = ''
+    stepsDiv.innerHTML = "";
 
     data.steps.forEach((step, index) => {
 
@@ -157,44 +221,53 @@ async function solveSystem() {
                 ${step}
 
             </div>
-
-        `
-
-    })
-
+        `;
+    });
 }
 
-function showExample(exampleNumber){
+
+// =========================
+// EXAMPLE TABS
+// =========================
+
+function showExample(exampleNumber) {
 
     const examples = document.querySelectorAll(
-        '.example-content'
-    )
+        ".example-content"
+    );
 
     examples.forEach(example => {
 
         example.classList.remove(
-            'active-example'
-        )
-
-    })
+            "active-example"
+        );
+    });
 
     document.getElementById(
         `example${exampleNumber}`
     ).classList.add(
-        'active-example'
-    )
+        "active-example"
+    );
 
     const buttons = document.querySelectorAll(
-        '.tab-btn'
-    )
+        ".tab-btn"
+    );
 
     buttons.forEach(btn => {
 
-        btn.classList.remove('active')
-
-    })
+        btn.classList.remove("active");
+    });
 
     buttons[exampleNumber - 1]
-    .classList.add('active')
-
+        .classList.add("active");
 }
+
+
+// =========================
+// PAGE LOAD
+// =========================
+
+window.onload = function () {
+
+    generateMatrix(3);
+};

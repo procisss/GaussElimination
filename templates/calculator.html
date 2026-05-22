@@ -13,42 +13,35 @@ Interactive Calculator
     <!-- UPPER LEFT -->
     <div class="glass">
 
-        <h3>
+        <h3>Enter Augmented Matrix</h3>
 
-            Enter Augmented Matrix (3x4)
+<div class="matrix-tabs">
 
-        </h3>
+    <button class="matrix-btn active"
+            id="btn3"
+            onclick="setMatrixSize(3)">
 
-        <table class="matrix">
+        3x4 Matrix
 
-            <tr>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-            </tr>
+    </button>
 
-            <tr>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-            </tr>
+    <button class="matrix-btn"
+            id="btn4"
+            onclick="setMatrixSize(4)">
 
-            <tr>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-                <td><input type="number"></td>
-            </tr>
+        4x5 Matrix
 
-        </table>
+    </button>
 
-        <button onclick="solveSystem()">
+</div>
 
-            Solve System
+<table class="matrix" id="matrixTable"></table>
 
-        </button>
+<button onclick="solveSystem()">
+
+    Solve System
+
+</button>
 
     </div>
 
