@@ -629,3 +629,23 @@ button:hover{
     background:#7b2ff7;
 
 }
+
+.box p {
+    line-height: 1.7;
+    margin-bottom: 12px;
+    color: #cfd6ee;
+}
+
+.spacer {
+    height: 14px;
+}
+
+.section-gap {
+    margin-top: 18px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
