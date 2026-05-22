@@ -13,12 +13,12 @@
         <h4>Introduction</h4>
 
         <p>
-            Gaussian Elimination is a numerical method used to solve systems of linear equations by transforming the augmented matrix into an upper triangular form.
-            Once in this form, the system becomes easier to solve using back substitution.
+            Gaussian Elimination is an algorithm used to solve systems of linear equations by transforming an augmented matrix into upper triangular form using elementary row operations.
+            Once in triangular form, the system can be solved efficiently through back substitution.
         </p>
 
         <p class="spaced">
-            The method is widely used in engineering, physics, and computer science because it provides a systematic and reliable way to solve multiple equations with multiple unknowns.
+            The method is widely used in engineering, physics, computer science, and numerical analysis because it provides a systematic way to solve multiple equations with multiple unknown variables.
         </p>
 
     </div>
@@ -28,8 +28,12 @@
         <h4>What is Gaussian Elimination?</h4>
 
         <p>
-            The goal of Gaussian Elimination is to simplify a system of equations step-by-step until it becomes triangular.
-            Each step removes variables from lower equations, reducing the complexity of the system while preserving its solution.
+            Gaussian Elimination simplifies a system of equations step-by-step by eliminating variables below each pivot element.
+            The process uses elementary row operations to preserve the solution while converting the matrix into an upper triangular form.
+        </p>
+
+        <p class="spaced">
+            After elimination is complete, the remaining triangular system is solved using back substitution.
         </p>
 
     </div>
@@ -39,14 +43,14 @@
         <h4>Partial Pivoting</h4>
 
         <p>
-            Partial pivoting improves numerical stability by swapping rows so that the largest available coefficient is used as the pivot.
-            This reduces rounding errors and prevents division by very small or zero values.
+            Partial pivoting improves numerical stability by swapping rows so that the largest absolute value in the current column becomes the pivot.
+            This minimizes rounding errors and helps avoid division by very small or zero values.
         </p>
 
         <div class="spacer"></div>
 
         <p>
-            Without pivoting, the elimination process may become unstable or fail in some cases.
+            Without pivoting, the elimination process may become unstable or fail for certain systems of equations.
         </p>
 
     </div>
@@ -56,11 +60,16 @@
         <h4>Row Elimination Formula</h4>
 
         <div class="math">
-            Rⱼ = Rⱼ − mⱼᵢRᵢ
+            m<sub>ji</sub> = a<sub>ji</sub> / a<sub>ii</sub>
+        </div>
+
+        <div class="math spaced">
+            R<sub>j</sub> ← R<sub>j</sub> − m<sub>ji</sub>R<sub>i</sub>
         </div>
 
         <p>
-            The multiplier <b>m<sub>ji</sub></b> is computed as the ratio of the element being eliminated to the pivot element.
+            The multiplier <b>m<sub>ji</sub></b> is calculated by dividing the element being eliminated by the pivot element.
+            This operation removes coefficients below the pivot position.
         </p>
 
     </div>
@@ -70,8 +79,12 @@
         <h4>Back Substitution</h4>
 
         <p>
-            Once the matrix is in upper triangular form, the last equation is solved first.
-            The solution is then substituted upward step-by-step to find all unknown variables.
+            Once the matrix is in upper triangular form, the final equation is solved first.
+            The resulting value is substituted into the equations above it step-by-step until all unknown variables are determined.
+        </p>
+
+        <p class="spaced">
+            Back substitution works efficiently because each equation contains fewer unknowns than the previous one.
         </p>
 
     </div>
@@ -82,9 +95,10 @@
 
         <ul>
             <li>Avoids division by zero through pivoting</li>
-            <li>Improves numerical stability</li>
-            <li>Reduces rounding errors in computation</li>
-            <li>Works efficiently for large systems of equations</li>
+            <li>Improves numerical stability in computations</li>
+            <li>Reduces rounding errors during elimination</li>
+            <li>Provides a systematic method for solving linear systems</li>
+            <li>Works efficiently for many engineering and scientific applications</li>
         </ul>
 
     </div>
